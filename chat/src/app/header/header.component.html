@@ -1,0 +1,27 @@
+<div class="responsive-bar">
+    <div class="logo" style="vertical-align: center;">
+        <!-- <img src="assets/img/s"".png" alt=""> -->
+        <!-- <h1>Lohith</h1> -->
+    </div>
+    <div class="menu" (click)="toggleFunction($event)">
+        <h4>Menu</h4>
+    </div>
+</div>
+<nav (window:resize)="onResize($event)">
+    <div class="logo" style="vertical-align: center;">
+        <!-- <img src="assets/img/s"".png" alt=""> -->
+        <!-- <h1>Lohith Chat Application</h1> -->
+    </div>
+
+    <ul [ngClass]="status">
+        <li><a href="#" *ngIf="logged=='true'" style="color: orange;">{{Fullname}}</a></li>
+
+        <li><a href="#">Home</a></li>
+        <!-- <li><a href="#" [routerLink]="['/course']">Courses</a></li>
+        <li><a href="#" [routerLink]="['/blog']">Blog</a></li> -->
+        <!-- <li><a href="#">Portfolio</a></li> -->
+        <li><a href="#" [routerLink]="['/signin']" *ngIf="logged=='false'">Sign in</a></li>
+        <li><a href="#" [routerLink]="['/signup']" *ngIf="logged=='false'">Sign up</a></li>
+        <li><a (click)="Logout()" *ngIf="logged=='true'">Sign Out</a></li>
+    </ul>
+</nav>

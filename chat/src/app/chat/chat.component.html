@@ -1,0 +1,125 @@
+<app-header>
+</app-header>
+<div style="background-color:#5DADE2;">
+  <br>
+  <br>
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+  <h3 class=" text-center chat_header">Chat Application</h3>
+
+  <br>
+
+  <br><br>
+  <div class="row">
+    <div class=" col-lg-4" style="overflow-y: scroll; max-height: 500px; ">
+      <div>
+        <div class="container bootstrap snippet">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                  <div class="table-responsive">
+                    <table class="table user-list">
+                      <thead>
+                        <tr>
+                          <th><span>User</span></th>
+                          <th><span>Last Seen</span></th>
+                          <th class="text-center"><span>Status</span></th>
+                          <!-- <th><span>Email</span></th> -->
+                          <th>&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let  user of Users">
+                        <tr (click)="OpenMessage(user)">
+                          <td>
+                            <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
+                            <a class="user-link">{{user.fullName}}</a>
+                            <span class="user-subhead">Member</span>
+                          </td>
+                          <td *ngIf="!user.loggedIn">{{user.loggedOutTime | date:'shortTime'}}</td>
+                          <td *ngIf="user.loggedIn"></td>
+
+                          <td class="text-center" >
+                            <span style="color: red;" class="label label-default" *ngIf="!user.loggedIn">InActive</span>
+                            <span style="color: green;" class="label label-default" *ngIf="user.loggedIn">Active</span>
+
+                          </td>
+
+                          <!-- <td style="width: 20%;">
+                                                <a href="#" class="table-link">
+                                                    <span class="fa-stack">
+                                                        <i class="fa fa-square fa-stack-2x"></i>
+                                                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                </a>
+                                                <a href="#" class="table-link">
+                                                    <span class="fa-stack">
+                                                        <i class="fa fa-square fa-stack-2x"></i>
+                                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                </a>
+                                                <a href="#" class="table-link danger">
+                                                    <span class="fa-stack">
+                                                        <i class="fa fa-square fa-stack-2x"></i>
+                                                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                    </span>
+                                                </a>
+                                            </td> -->
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container col-lg-8">
+      <div class="messaging">
+        <hr>
+        <h3 style="text-align: center;">{{name}}</h3>
+        <div class="inbox_msg">
+          <div class="mesgs">
+            <div class="msg_history" id="msghistory">
+              <div *ngFor="let msg of messages">
+                <div class="incoming_msg" *ngIf="msg.type=='received'">
+                  <div class="incoming_msg_img"> </div>
+                  <div class="received_msg">
+                    <div class="received_withd_msg">
+                      <p>
+                        {{msg.message}}
+                      </p>
+                      <span class="time_date"> {{msg.date | date:'medium'}} </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="outgoing_msg" *ngIf="msg.type=='sent'">
+                  <div class="sent_msg">
+                    <p>
+                      {{msg.message}}
+                    </p>
+                    <span class="time_date"> {{msg.date | date:'medium'}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="type_msg">
+              <div class="input_msg_write">
+                <input (keyup)="analysis($event.target.value)" type="text" class="write_msg" [value]="txtMessage" (input)="txtMessage=$event.target.value"
+                  (keydown.enter)="sendMessage()" placeholder="Type a message"  />
+                <button class="msg_send_btn" type="button" (click)="sendMessage()"><i class="fa fa-paper-plane-o"
+                    aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="loader" *ngIf="emotion"></div> -->
+      <div id="emotion" ></div>
+
+      </div>
+    </div>
+  </div>
+</div>

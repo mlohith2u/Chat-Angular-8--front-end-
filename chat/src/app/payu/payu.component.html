@@ -1,0 +1,22 @@
+<div class="col-md-12 row" style="width: 100vw;height: 100vh;display: flex;justify-content: center;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form action="https://secure.payu.in/_payment" style="margin-top: 30vh;border: solid limegreen 1px;border-radius: 1px;width: fit-content;padding: 20px;" align="center">
+            Amount - <br>
+            <input type="number" name="amount" id="" [(ngModel)]="amount" disabled placeholder="1000"> <br> Business - <br>
+            <input type="number" name="business" id="" [(ngModel)]="business" disabled> <br> Name - <br>
+            <input type="number" name="name" id="" [(ngModel)]="name" disabled> <br> Email - <br>
+            <input type="number" name="email" id="" [(ngModel)]="email" disabled> <br> Mobile - <br>
+            <input type="number" name="mobile" id="" [(ngModel)]="mobile" disabled>
+            <br>
+            <button class="btn btn-success" type="submit">Submit</button>
+
+            <!-- <input type="hidden" name="{{CustomerData.valpair[7].name}}" value="{{CustomerData.valpair[7].value}}">
+        <input type="hidden" name="{{CustomerData.valpair[8].name}}" value="{{CustomerData.valpair[8].value}}">
+        <input type="hidden" name="{{CustomerData.valpair[9].name}}" value="{{CustomerData.valpair[9].value}}">
+        <input type="hidden" name="{{CustomerData.valpair[10].name}}" value="{{CustomerData.valpair[10].value}}">
+
+        <input type="hidden" name="OpenPayu-Signature" value="sender=145227;algorithm=SHA-256;signature={{CustomerData.valpair[10].value}}"> -->
+        </form>
+    </div>
+</div>

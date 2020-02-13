@@ -1,0 +1,24 @@
+<app-header>
+</app-header>
+<br><br><br><br>
+<div class="col-md-12 row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <button (click)="getmycourse()" class="btn btn-primary">My Courses</button>
+
+        <table style="display: none;">
+            <thead>
+                <th>Sl. No</th>
+                <th>CourseName</th>
+                <th>Syllabus</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of mycourses;let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{data.CourseName}}</td>
+                    <td><button type="submit" class="btn btn-primary">Syllabus</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
